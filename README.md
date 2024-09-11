@@ -1,9 +1,9 @@
 # Rename raw file with rexiv2
 
-## description
+## Description
 Rename CR3 file from `IMG_<no>.CR3` into `<timestamp>_<date>_<time>.CR3` in batch.
 
-## background
+## Background
 
 For backup purposes. I will rename my image raw files with the date/time it took before upload. 
 
@@ -19,7 +19,7 @@ I initially use the (`exiftool` by phil)[https://exiftool.org/], but the perform
 - build the binary with `$ cargo build --release` 
 - for system-wise usage:  `$ mv $(pwd)/target/exifrename /usr/local/bin`
 
-## test 
+## Test 
 
 - put any sample CR3 file in current folder.
 - run with `cargo run`
