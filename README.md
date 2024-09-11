@@ -1,7 +1,7 @@
 # Rename raw file with rexiv2
 
 ## Description
-Rename CR3 file from `IMG_<no>.CR3` into `<timestamp>_<date>_<time>.CR3` in batch.
+Rename CR3 file into `<timestamp>_<date>_<time>.CR3` format in batch.
 
 ## Background
 
@@ -42,5 +42,5 @@ I initially use the [`exiftool` by phil](https://exiftool.org/), but the perform
 
 ## TODO
 
-- Pass timezone / file format as env variable / args
-- Perf for tokio
+- [ ] Pass timezone / file format as env variable / args
+- [ ] Perf for tokio
