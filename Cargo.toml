@@ -1,0 +1,10 @@
+[package]
+name = "exifrename"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = "*"
+rexiv2 = "0.9"
+tokio = { version = "1", features = ["full"] }
+
