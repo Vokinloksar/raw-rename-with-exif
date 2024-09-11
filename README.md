@@ -1,7 +1,7 @@
-# Rename raw file with rexiv2
+# Rename image file with rexiv2
 
 ## Description
-Rename CR3 file into `<timestamp>_<date>_<time>.CR3` format in batch.
+Rename image file names into `<timestamp>_<date>_<time>.CR3` format in batch using exif data.
 
 ## Background
 
