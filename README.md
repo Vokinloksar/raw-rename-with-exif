@@ -28,9 +28,19 @@ I initially use the [`exiftool` by phil](https://exiftool.org/), but the perform
 `$ exifrename --dry-run` to check run 
 `$ exifrename <dir>` to run for certain folder.
 
+## Limitation
+
+- Timezone is set to +0800
+- Supported file format is currently jpg/JPG/CR3
+
 ## Considerations
 
 - I don't know anything about Rust
 - Use `rexiv2` for exif parsing with rust
 - Use `chrono` for timezone info for timestamp. current timezone is set at east+8
 - Use `tokio` for better memory efficiency (not perfed). (All tokio usage are provided by AI)
+
+## TODO
+
+- Pass timezone / file format as env variable / args
+- Perf for tokio
