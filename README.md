@@ -12,8 +12,6 @@ For example, a image a camera took (e.g. IMG_1234.CR3 for canon) might overlap w
 I initially use the [`exiftool` by phil](https://exiftool.org/), but the performance is a bit slow. So I then seek solution for a rust-version exif tool for renaming these raw files. 
 
 
-
-
 ## Install from source
 
 - build the binary with `$ cargo build --release` 
@@ -21,7 +19,7 @@ I initially use the [`exiftool` by phil](https://exiftool.org/), but the perform
 
 ## Test 
 
-- put any sample CR3 file in current folder.
+- put any sample jpg/JPG/CR3 file in current folder.
 - run with `cargo run`
 
 ## Usage

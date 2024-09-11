@@ -19,7 +19,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     for entry in entries {
         let entry = entry?;
         let path = entry.path();
-        let allowed_extensions = ["jpg", "CR3", "mp4", "MP4", "JPG"];
+        let allowed_extensions = ["jpg", "CR3", "JPG"];
 
 
         if path.is_file() && path.extension().map(|ext| {
@@ -53,7 +53,8 @@ fn rename_by_exif(file_path: &Path, dryrun: bool) -> Result<(), Box<dyn std::err
     let date_time = metadata.get_tag_string("Exif.Photo.DateTimeOriginal").ok();
     let subsec = metadata.get_tag_string("Exif.Photo.SubSecTimeOriginal").ok();
 
-    if let (Some(date_time), Some(subsec)) = (date_time, subsec) {
+    if let (Some(date_time), Some(subsec), Some(ext)) = (date_time, subsec, file_path.extension()) {
+        let ext_str = ext.to_string_lossy();
         let date_time_str: &str = date_time.as_str();
         let naive_dt = NaiveDateTime::parse_from_str(date_time_str, "%Y:%m:%d %H:%M:%S").expect("Failed to parse date");
         let timezone_offset = FixedOffset::east_opt(8 * 3600).expect("Failed to parse date");
@@ -65,7 +66,7 @@ fn rename_by_exif(file_path: &Path, dryrun: bool) -> Result<(), Box<dyn std::err
         let date_part_cleaned = date_part.replace(":", "");
         let time_part_cleaned = time_part.replace(":", "")[0..4].to_string();
         let formatted_timestamp = format!("{}{}0", unix_timestamp, subsec);
-        let new_file_name = format!("{}-{}-{}.CR3", formatted_timestamp, date_part_cleaned, time_part_cleaned);
+        let new_file_name = format!("{}-{}-{}.{}", formatted_timestamp, date_part_cleaned, time_part_cleaned, ext_str);
         let new_file_path = file_path.with_file_name(new_file_name.clone());
 
         if file_path != new_file_path {
